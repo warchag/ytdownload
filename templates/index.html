@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<title>YOUTUBE DOWNLOAD</title>
+
+<head>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2 align='center'>YOUTUBE DOWNLOAD</h2>
+    <form align='center' action=" {{ url_for('index')}}" method="post">
+        <input type="text" size="100" name="nameurl">
+        <button type="submit">Download</button>
+
+    </form>
+    <table>
+        <tr>
+            <th>Resolution</th>
+            <th>Type</th>
+            <th>Link</th>
+        </tr>
+        {% for item in data %}
+        <tr>
+            <td>{{ item.resolution }}</td>
+            <td>{{ item.mime_type }}</td>
+            <td>
+                <a href="{{ item.url }}">Download</a>
+            </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</body>
+
+</html>
